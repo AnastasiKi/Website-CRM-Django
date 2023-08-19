@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card border-info mb-3" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-success"><strong>
+      {{ customer_record.first_name }}
+      {{ customer_record.last_name }}</strong></div>
+  <div class="card-body">
+    <h5 class="card-title"><strong>Email: </strong>{{ customer_record.email }}</h5>
+    <p class="card-text"><strong>Телефон: </strong>{{ customer_record.phone }} <br/>
+        <strong>Адрес: </strong>{{ customer_record.address }} <br/>
+        <strong>Город: </strong>{{ customer_record.city }} <br/>
+        <strong>Субъект: </strong>{{ customer_record.state }} <br/>
+         <strong>Индекс: </strong> {{ customer_record.zipcode }} <br/>
+          <strong>id: </strong>{{ customer_record.id }}</p>
+  </div>
+  <div class="card-footer bg-transparent border-success"><strong>Дата регистрации: </strong>{{ customer_record.created_at }} </div>
+</div>
+
+<br/><br/>
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+<a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+
+
+
+
+
+{% endblock %}
